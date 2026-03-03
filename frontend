@@ -1,3 +1,0 @@
-from backend import Transactions,User_information
-t =  Transactions()
-t.deposit(29)
