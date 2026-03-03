@@ -31,9 +31,12 @@ class Transactions:
         print( f"Balance: ${self.balance}")
     
     def paybills(self,amount: float,bill: str):
-       print( f"${amount} {bill} paid successfully!" )
-       return self.view_balance()
-
+        if amount < self.balance :
+            self.balance -= amount
+            print( f"${amount} {bill} paid successfully!" )
+            return self.view_balance()
+        elif amount < 0 or amount > self.balance:
+            print("Invalid amount/Insufficient balance")
 
 
 
@@ -72,10 +75,5 @@ class User_information(Transactions):
 
 
 t = Transactions()
-deposit = t.deposit(200)
-print(deposit)
-withdraw = t.withdraw(0)
-view = t.view_balance()
-transfer = t.transfer_money("Ama",90.0,"Kofi")
-u = User_information("marcus",89,2939,9383889283)
-u.get_name()
+deposit = t.deposit(30)
+t.paybills(200,"Food")
