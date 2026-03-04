@@ -1,9 +1,14 @@
 # the-banking-app-simulator
-Simulating a backend for banks
+**Simulating a backend for banks**_
 concepts learnt include;
-**-Inheritance
+_-Inheritance
+
 -Data modeling
+
 -Nested dictionaries
+
 -Validation logic
+
 -Method scope
--Object state separation**
+
+-Object state separation_
