@@ -1,9 +1,8 @@
 class Transactions:
     def __init__(self):
         self.balance = 0
-        self.transaction_history = {}
-    
-
+        account_details = {}
+        
     def deposit(self,amount: float):
         if amount > 0:
             self.balance += amount 
@@ -39,18 +38,18 @@ class Transactions:
             print("Invalid amount/Insufficient balance")
 
 
-
-
-
 class User_information(Transactions):
     def __init__(self,name: str,age: int,PIN: int, account_num):
         self.name = name 
         self.age = age
         self.PIN = PIN
-        self.user_details = {}
+        self.account_details = {"name":  
+                                {"transaction": []}
+                                }
     def get_name(self):
         if isinstance(self.name,str):
-            return self.name
+            self.account_details["name"] = self.name
+            print("Valid")
         else:
             return "Invalid!, 'NAME' should not be a number"
 
@@ -66,14 +65,16 @@ class User_information(Transactions):
             return("PIN obtained")
         elif self.get_PIN > 9999 or self.get_PIN < 1000:
             return("PIN must be an integer between(1000-9999)")
-
-    def get_account_number(self):
-        return self.get_account_number
+    def get_account_number(self,account_number):
+        return account_number
        
 
 
 
-
+u = User_information("Marcus",23,9088,83963573)
 t = Transactions()
 deposit = t.deposit(30)
-t.paybills(200,"Food")
+t.paybills(20,"Food")
+u.get_name()
+print(u.account_details)
+
