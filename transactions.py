@@ -1,12 +1,15 @@
+
 class Transactions:
     def __init__(self):
         self.balance = 0
-        account_details = {}
+        self.transaction = []
         
     def deposit(self,amount: float):
         if amount > 0:
             self.balance += amount 
+            self.transaction.append(f"${amount} deposited")
             return(f"You have ${amount} deposited.\nCurrent balance is ${self.balance}")
+
         else:
             return( f"You can't deposit ${amount}, Invalid amount" )
 
@@ -17,11 +20,13 @@ class Transactions:
             return f"You can't withdraw ${amount}, your balance is ${self.balance}"
         else:
             self.balance -= amount
+            self.transaction.append(f"${amount} withdrawed")
             return f"${amount} withdrawn\nCurrent balance is ${self.balance}"
         
     def transfer_money(self,sender: str,amount: float,receiver: str):
         if amount <= self.balance:
             self.balance = self.balance - amount
+            self.transaction.append(f"${amount} transfered")
             return( f"Transfer to {receiver} successful! current balance is ${self.balance}")
         elif amount > self.balance:
             return( f"You can't transfer ${amount}, your balance is ${self.balance}")
@@ -32,50 +37,19 @@ class Transactions:
     def paybills(self,amount: float,bill: str):
         if amount < self.balance :
             self.balance -= amount
+            self.transaction.append(f"${amount} for {bill} payment")
             print( f"${amount} {bill} paid successfully!" )
             return self.view_balance()
         elif amount < 0 or amount > self.balance:
             print("Invalid amount/Insufficient balance")
 
 
-class User_information(Transactions):
-    def __init__(self,name: str,age: int,PIN: int, account_num):
-        self.name = name 
-        self.age = age
-        self.PIN = PIN
-        self.account_details = {
-            self.name {"transaction": [], 
-                        "PIN": self.PIN}
-                                }
-    def get_name(self):
-        if isinstance(self.name,str):
-            return self.name
-        else:
-            return "Invalid!, 'NAME' should not be a number"
-
-    def get_age(self):
-        if isinstance(self.age,int):
-           if self.age >= 0:
-               return self.age
-           else:
-               return "Invalid age"
-        raise ValueError ("Age must be an integer")
-    def get_PIN(self):
-        if isinstance(self.PIN, int):
-            return self.PIN
-        elif self.get_PIN > 9999 or self.get_PIN < 1000:
-            return("PIN must be an integer between(1000-9999)")
-    def get_account_number(self,account_number):
-        return account_number
-       
 
 
 
-u = User_information("Marcus",23,9088,83963573)
+
 t = Transactions()
 deposit = t.deposit(30)
 t.paybills(20,"Food")
-u.get_name()
-u.get_PIN()
-print(u.account_details)
 
+print(t.transaction)
