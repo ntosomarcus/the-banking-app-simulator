@@ -2,7 +2,8 @@
 **Simulating a backend for banks**
 
 concepts learnt include;
-_-Inheritance
+
+-Inheritance
 
 -Data modeling
 
