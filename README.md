@@ -1,5 +1,6 @@
 # the-banking-app-simulator
-**Simulating a backend for banks**_
+**Simulating a backend for banks**
+
 concepts learnt include;
 _-Inheritance
 
