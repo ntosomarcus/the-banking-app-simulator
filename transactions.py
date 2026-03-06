@@ -50,6 +50,6 @@ class Transactions:
 
 t = Transactions()
 deposit = t.deposit(30)
-t.paybills(20,"Food")
 
-print(t.transaction)
+
+

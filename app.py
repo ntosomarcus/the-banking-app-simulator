@@ -11,22 +11,38 @@ def main():
     account_number = input("Enter account number here: ")
     PIN = input("Enter PIN here: ")
     u = User_information(name,age,PIN,account_number)
-    
-    print("""
-    1. Deposit
-    2. Withdraw
-    3. Transfer money
-    4. Paybill
-        """)
-    choice = int(input("Choose the transaction you want today: "))
-    if choice == 1:
-        amount = float(input(f"{name} how much do you want to deposit? \n"))
-        deposit = t.deposit(amount)
-    elif choice == 2:
-        amount = float(input("how much do you want to withdraw? \n"))
-        withdraw = t.withdraw(amount)
-        print(withdraw)
-        return choice
+
+    while True:  
+        print("""
+        1. Deposit
+        2. Withdraw
+        3. Transfer money
+        4. Paybill
+        5. exit 
+            """)
+        choice = int(input("Choose the transaction you want today: "))
+        if choice == 1:
+            amount = float(input(f"{name} how much do you want to deposit? \n"))
+            deposit = t.deposit(amount)
+            print(deposit)
+        elif choice == 2:
+            amount = float(input("how much do you want to withdraw? \n"))
+            withdraw = t.withdraw(amount)
+            print(withdraw)
+        elif choice == 3:
+            amount = float(input("how much do you want to Transfer? \n"))
+            receiver = str("Enter receiver's name: ")
+            t.transfer_money(name,amount,receiver)
+        elif choice == 4:
+            bill = str(input("Enter the type of Bill"))
+            amount = float(input("how bill do you want to pay? \n"))
+            PayBill = t.paybills(amount,bill)
+            print(PayBill)
+        elif choice == 5:
+            print("Thank you for banking with us.")
+            break
+        else:
+            print("Invalid Input!")
             
 
         
