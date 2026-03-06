@@ -26,16 +26,16 @@ def main():
             deposit = t.deposit(amount)
             print(deposit)
         elif choice == 2:
-            amount = float(input("how much do you want to withdraw? \n"))
+            amount = float(input("How much do you want to withdraw? \n"))
             withdraw = t.withdraw(amount)
             print(withdraw)
         elif choice == 3:
-            amount = float(input("how much do you want to Transfer? \n"))
-            receiver = str("Enter receiver's name: ")
-            t.transfer_money(name,amount,receiver)
+            amount = float(input("How much do you want to Transfer?\n"))
+            receipient = str(input("Enter receiver's name: "))
+            t.transfer_money(name,amount,receipient)
         elif choice == 4:
             bill = str(input("Enter the type of Bill"))
-            amount = float(input("how bill do you want to pay? \n"))
+            amount = float(input("How much do you want to pay? \n"))
             PayBill = t.paybills(amount,bill)
             print(PayBill)
         elif choice == 5:
