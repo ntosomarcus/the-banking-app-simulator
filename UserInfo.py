@@ -1,13 +1,16 @@
 from transactions import Transactions
 
 class User_information(Transactions):
-    def __init__(self,name: str,age: int,PIN: int, account_num):
+    def __init__(self,name: str,age: int,PIN: int, account_num: int):
         self.name = name 
         self.age = age
         self.PIN = PIN
+        self.account_num =  account_num
         self.account_details = {
-            self.name: {"transaction": [], 
-                        "PIN": self.PIN}
+            self.name: {"transactions": [f"{self.deposit} "], 
+                        "PIN": self.PIN,
+                        "age": self.age,
+                        "account number":self.account_num}
                                 }
     def get_name(self):
         if isinstance(self.name,str):
@@ -30,6 +33,5 @@ class User_information(Transactions):
     def get_account_number(self,account_number):
         return account_number
        
-u = User_information("Ben",23,3039,293990293343343)
-name = u.get_name()
-print(u.account_details)
+
+

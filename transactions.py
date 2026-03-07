@@ -25,9 +25,9 @@ class Transactions:
         
     def transfer_money(self,sender: str,amount: float,receiver: str):
         if amount <= self.balance:
-            self.balance = self.balance - amount
+            self.balance -= amount
             self.transaction.append(f"${amount} transfered")
-            return( f"Transfer to {receiver} successful! current balance is ${self.balance}")
+            print( f"Transfer to {receiver} successful! current balance is ${self.balance}")
         elif amount > self.balance:
             return( f"You can't transfer ${amount}, your balance is ${self.balance}")
 
@@ -43,13 +43,15 @@ class Transactions:
         elif amount < 0 or amount > self.balance:
             print("Invalid amount/Insufficient balance")
 
-
+    
 
 
 
 
 t = Transactions()
 deposit = t.deposit(30)
-t.paybills(20,"Food")
 
-print(t.transaction)
+
+
+
+
